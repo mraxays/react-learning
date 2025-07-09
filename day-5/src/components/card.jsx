@@ -6,16 +6,19 @@ function Card() {
       img: "https://placehold.co/640x360?font=Montserrat&text=Card+1",
       title: "Card 1",
       description: "This is the description for Card 1.",
+      inStock: true,
     },
     {
       img: "https://placehold.co/640x360?font=Montserrat&text=Card+2",
       title: "Card 2",
       description: "This is the description for Card 2.",
+      inStock: false,
     },
     {
       img: "https://placehold.co/640x360?font=Montserrat&text=Card+3",
       title: "Card 3",
       description: "This is the description for Card 3.",
+      inStock: false,
     },
   ];
 
@@ -40,8 +43,8 @@ function Card() {
             </p>
           </div>
           <div className="p-4">
-            <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
-              Read More
+            <button className={`${ elem.inStock ? "bg-blue-500" : "bg-gray-400 cursor-not-allowed"} hover:opacity-90 text-white px-4 py-2 rounded transition-colors`} disabled={!elem.inStock}>
+              {elem.inStock ? "Add to Cart" : "Out of Stock"}
             </button>
           </div>
         </div>
