@@ -39,6 +39,11 @@ function Card() {
               {elem.description}
             </p>
           </div>
+          <div className="p-4">
+            <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+              Read More
+            </button>
+          </div>
         </div>
       ))}
     </div>
