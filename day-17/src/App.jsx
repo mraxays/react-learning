@@ -51,10 +51,10 @@ function App() {
   ];
   const [cards, setCards] = useState(cardData);
   // State Jaha Banti hai vaha Modify ki jaa sakati hai
-  const handleCards = () => {
+  const handleCards = (idx) => {
     setCards((prev) => {
      return prev.map((item, index) => {
-        if (index === 2) {
+        if (index === idx) {
           return { ...item, enroll: !item.enroll };
         }
         return item;
@@ -71,7 +71,7 @@ function App() {
     // </div>
     <div className="w-full flex items-center justify-center h-screen bg-gray-200 gap-2">
       {cards.map((element, index) => (
-        <Card key={index} handleClick={handleCards} value={element} />
+        <Card key={index} index={index} handleClick={handleCards} value={element} />
       ))}
     </div>
   );
