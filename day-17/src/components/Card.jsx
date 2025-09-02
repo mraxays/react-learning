@@ -5,8 +5,8 @@ import React from "react";
 //      <button className={`${color} text-white px-2 py-1 rounded shadow`}>{text}</button>
 //   )
 // }
-function Card({ value }) {
-  const { imgSrc, title, description } = value;
+function Card({ value,handleClick }) {
+  const { imgSrc, title, description,enroll } = value;
   return (
     <div className="w-60 bg-white border border-gray-400 rounded shadow overflow-hidden flex items-center justify-center">
       <div className="">
@@ -14,7 +14,7 @@ function Card({ value }) {
         <div className="p-2">
           <h3 className="text-lg font-semibold">{title}</h3>
           <p className="text-sm text-gray-600">{description}</p>
-          <button onClick={() => alert(`Learn more about ${title}`)} className="bg-blue-500 text-white px-2 py-1 text-sm rounded shadow mt-2">Learn More</button>
+          <button onClick={handleClick} className="bg-blue-500 text-white px-2 py-1 text-sm rounded shadow mt-2">{enroll ? 'Enrolled' : 'Enroll'}</button>
         </div>
       </div>
     </div>
