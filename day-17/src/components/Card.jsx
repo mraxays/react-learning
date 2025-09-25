@@ -20,7 +20,7 @@ function Card({ value, handleClick, index }) {
           <p className="text-sm text-gray-600">{description}</p>
           <button
             onClick={() => handleClick(index)}
-            className="bg-blue-500 text-white px-2 py-1 text-sm rounded shadow mt-2"
+            className={` ${enroll ? "bg-gray-600" : "bg-blue-500"} text-white px-2 py-1 text-sm rounded shadow mt-2`}
           >
             {enroll ? "Enrolled" : "Enroll"}
           </button>
