@@ -1,27 +1,22 @@
-import React, { useState } from "react";
-
+import React from "react";
+import { useForm } from "react-hook-form"
 function App() {
-  // useState Form Submit
-  const [val, setVal] = useState({ name: "", age: "" });
-  const hidleSubmit = (event) => {
-    event.preventDefault();
-    console.log(val);
-  };
-
+  // react-hook-form form submiting
+  const {register, handleSubmit} = useForm();
   return (
     <div className="p-5">
-      <form className="space-x-2" action="" onSubmit={hidleSubmit}>
+      <form className="space-x-2" action="" onSubmit={handleSubmit(data => console.log(data))}>
         <input
           className="border px-2 py-1 rounded"
           type="text"
           placeholder="Name"
-          onChange={(event) => setVal({ ...val, name: event.target.value })}
+          {...register("name")}
         />
         <input
           className="border px-2 py-1 rounded"
           type="number"
           placeholder="Age"
-          onChange={(event) => setVal({ ...val, age: event.target.value })}
+          {...register("age")}
         />
         <button
           className="px-2 py-1 bg-amber-600 hover:bg-amber-800 text-white rounded"
@@ -35,4 +30,3 @@ function App() {
 }
 
 export default App;
-

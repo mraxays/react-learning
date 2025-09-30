@@ -1,26 +1,29 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 
 function App() {
-  const [val, setVal] = useState({ name: "", age: "" });
+  // useRef Form Submittion
+  const name = useRef(null);
+  const age = useRef(null);
+
   const hidleSubmit = (event) => {
     event.preventDefault();
-    console.log(val);
+    alert("Form Submit => Name : " + name.current.value + " Age : " + age.current.value)
   };
 
   return (
     <div className="p-5">
       <form className="space-x-2" action="" onSubmit={hidleSubmit}>
         <input
+          ref={name}
           className="border px-2 py-1 rounded"
           type="text"
           placeholder="Name"
-          onChange={(event) => setVal({ ...val, name: event.target.value })}
         />
         <input
+          ref={age}
           className="border px-2 py-1 rounded"
           type="number"
           placeholder="Age"
-          onChange={(event) => setVal({ ...val, age: event.target.value })}
         />
         <button
           className="px-2 py-1 bg-amber-600 hover:bg-amber-800 text-white rounded"
