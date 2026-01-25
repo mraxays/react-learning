@@ -5,13 +5,17 @@ import User from "../components/User";
 import UserDetails from "../components/UserDetails";
 function Routing() {
   return (
-     <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/user" element={<User />}></Route>
-        <Route path="/user/:username" element={<UserDetails />}></Route>
-      </Routes>
-  )
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/user" element={<User />}>
+        {/* If You want to open UserDetails component inside User component */}
+        <Route path="/user/:username" element={<UserDetails />} />
+      </Route>
+      {/* If You want to open UserDetails component in like new page */}
+      {/* <Route path="/user/:username" element={<UserDetails />}/> */}
+    </Routes>
+  );
 }
 
-export default Routing
+export default Routing;
