@@ -41,7 +41,7 @@ function Show() {
           </div>
         ))
       ) : (
-        <div className="mt-4 text-center">Loading...</div>
+        <p>Loading products...</p>
       )}
     </div>
   );
