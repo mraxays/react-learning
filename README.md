@@ -90,3 +90,10 @@ To install Tailwind CSS in your React project, follow these steps:
     @import "tailwindcss";
     ```
 -----
+# Project I Did
+## Project 1
+### Fake Store 
+I created a simple e-commerce application using React and Tailwind CSS that fetches data from the Fake Store API. The application displays a list of products, allowing users to browse through them and view details.
+
+<img width="1200" height="630" alt="og_image" src="https://github.com/user-attachments/assets/e295997c-98ff-4d0c-94c0-5af4429c3f7e" />
+
