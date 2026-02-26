@@ -1,24 +1,39 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { ProductContext } from "../context/Context";
-import { nanoid } from "nanoid";
-import { useNavigate } from "react-router-dom";
 
-function Create() {
-  const navigate = useNavigate();
+function Edit() {
   const [products, setProducts] = useContext(ProductContext);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
-  const [price, setPrice] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const [currentProduct, setCurrentProduct] = useState({
+    title: "",
+    description: "",
+    category: "",
+    price: "",
+    image: "",
+  });
 
-  const AddProductHandler = (e) => {
+  useEffect(() => {
+    const product = products.filter((product) => product.id == id)[0];
+    setCurrentProduct(product);
+  }, [id, products]);
+
+  const {
+    title,
+    description,
+    category,
+    price,
+    image: imageUrl,
+  } = currentProduct;
+
+  const EditProductHandler = (e) => {
     e.preventDefault();
     if (
       title.trim().length === 0 ||
       description.trim().length === 0 ||
       category.trim().length === 0 ||
-      price.trim().length === 0 ||
+      String(price).trim().length === 0 ||
       imageUrl.trim().length === 0
     ) {
       alert("Please fill in all fields");
@@ -27,8 +42,8 @@ function Create() {
       alert("Please enter a valid price greater than 0");
       return;
     }
-    const newProduct = {
-      id: nanoid(),
+    const updatedProduct = {
+      id,
       title,
       description,
       category,
@@ -39,14 +54,11 @@ function Create() {
         count: Math.floor(Math.random() * 1000) + 1,
       },
     };
-    console.log(newProduct);
-    setProducts([...products, newProduct]);
-    localStorage.setItem("products", JSON.stringify([...products, newProduct]));
-    setTitle("");
-    setDescription("");
-    setCategory("");
-    setPrice("");
-    setImageUrl("");
+    const updatedProducts = products.map((product) =>
+      product.id == id ? updatedProduct : product,
+    );
+    setProducts(updatedProducts);
+    localStorage.setItem("products", JSON.stringify(updatedProducts));
     navigate("/");
   };
 
@@ -55,20 +67,20 @@ function Create() {
       {/* Header */}
       <div className="max-w-4xl mx-auto px-6 pt-20 pb-12 text-center">
         <p className="text-xs tracking-[0.35em] uppercase text-neutral-500 mb-4">
-          New Entry
+          Edit Product
         </p>
         <h1 className="text-4xl font-light text-neutral-900 tracking-tight">
-          Create New Product
+          Modify Product details
         </h1>
       </div>
 
       {/* Form */}
       <form
-        onSubmit={AddProductHandler}
+        onSubmit={EditProductHandler}
         className="max-w-4xl mx-auto px-6 pb-24"
       >
         <div className="bg-white rounded-3xl shadow-sm p-12 space-y-10">
-          {/* Product Name */}
+          {/* Project Name */}
           <div>
             <label className="block text-xs tracking-[0.25em] uppercase text-neutral-500 mb-2">
               Product Name
@@ -78,9 +90,9 @@ function Create() {
               placeholder="Enter product name"
               className="w-full border-b border-neutral-300 py-3 text-sm focus:outline-none focus:border-neutral-900 transition bg-transparent"
               onChange={(e) => {
-                setTitle(e.target.value);
+                setCurrentProduct({ ...currentProduct, title: e.target.value });
               }}
-              value={title}
+              value={currentProduct.title}
             />
           </div>
 
@@ -93,8 +105,13 @@ function Create() {
               rows="4"
               placeholder="Describe the product"
               className="w-full border-b border-neutral-300 py-3 text-sm focus:outline-none focus:border-neutral-900 transition bg-transparent resize-none"
-              onChange={(e) => setDescription(e.target.value)}
-              value={description}
+              onChange={(e) =>
+                setCurrentProduct({
+                  ...currentProduct,
+                  description: e.target.value,
+                })
+              }
+              value={currentProduct.description}
             />
           </div>
 
@@ -107,8 +124,13 @@ function Create() {
               </label>
               <select
                 className="w-full border-b border-neutral-300 py-3 text-sm bg-transparent focus:outline-none focus:border-neutral-900 transition"
-                onChange={(e) => setCategory(e.target.value)}
-                value={category}
+                onChange={(e) =>
+                  setCurrentProduct({
+                    ...currentProduct,
+                    category: e.target.value,
+                  })
+                }
+                value={currentProduct.category}
               >
                 <option hidden value={""}>
                   Select category
@@ -130,8 +152,13 @@ function Create() {
                 placeholder="0.00"
                 className="w-full border-b border-neutral-300 py-3 text-sm focus:outline-none focus:border-neutral-900 transition bg-transparent"
                 step={"0.01"}
-                onChange={(e) => setPrice(e.target.value)}
-                value={price}
+                onChange={(e) =>
+                  setCurrentProduct({
+                    ...currentProduct,
+                    price: e.target.value,
+                  })
+                }
+                value={currentProduct.price}
               />
             </div>
           </div>
@@ -145,8 +172,10 @@ function Create() {
               type="url"
               placeholder="Enter image url"
               className="w-full border-b border-neutral-300 py-3 text-sm focus:outline-none focus:border-neutral-900 transition bg-transparent"
-              onChange={(e) => setImageUrl(e.target.value)}
-              value={imageUrl}
+              onChange={(e) =>
+                setCurrentProduct({ ...currentProduct, image: e.target.value })
+              }
+              value={currentProduct.image}
             />
           </div>
           {/* Actions */}
@@ -155,20 +184,7 @@ function Create() {
               type="submit"
               className="flex-1 bg-neutral-900 text-white py-4 rounded-full text-xs tracking-[0.3em] uppercase hover:bg-neutral-800 transition"
             >
-              Create Product
-            </button>
-            <button
-              type="button"
-              className="flex-1 border border-neutral-300 text-neutral-700 py-4 rounded-full text-xs tracking-[0.3em] uppercase hover:bg-neutral-100 transition"
-              onClick={() => {
-                setTitle("");
-                setDescription("");
-                setCategory("");
-                setPrice("");
-                setImageUrl("");
-              }}
-            >
-              Clear
+              Update Product
             </button>
           </div>
         </div>
@@ -177,4 +193,4 @@ function Create() {
   );
 }
 
-export default Create;
+export default Edit;

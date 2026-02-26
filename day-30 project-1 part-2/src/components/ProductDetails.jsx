@@ -93,9 +93,9 @@ function ProductDetails() {
 
           {/* Actions */}
           <div className="space-y-4 pt-10">
-            <button className="w-full bg-neutral-900 text-white py-4 rounded-full text-sm tracking-wide hover:bg-neutral-800 transition cursor-pointer">
+            <Link to={`/edit/${product.id}`} className="w-full block bg-neutral-900 text-white py-4 rounded-full text-sm tracking-wide text-center hover:bg-neutral-800 transition cursor-pointer">
               Edit Product
-            </button>
+            </Link>
             <button onClick={ProductDeleteHandler} className="w-full border border-neutral-900 text-neutral-900 py-4 rounded-full text-sm tracking-wide hover:bg-neutral-200 transition cursor-pointer">
               Delete Product
             </button>
