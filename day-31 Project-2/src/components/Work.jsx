@@ -1,41 +1,37 @@
 import React from "react";
 
 function Work() {
+  var imgs = [
+    {
+      url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d29ya3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      top: 0,
+      left: 0,
+      isActive: false,
+    },
+    {
+      url: "https://images.unsplash.com/photo-1763998861274-50ad8e2a182c?q=80&w=749&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      top: 0,
+      left: 0,
+      isActive: false,
+    },
+    {
+      url: "https://images.unsplash.com/photo-1772398901550-a0b9da0d0160?q=80&w=699&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      top: 0,
+      left: 0,
+      isActive: false,
+    },
+    {
+      url: "https://images.unsplash.com/photo-1677773583198-46f12a6cacaa?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      top: 0,
+      left: 0,
+      isActive: false,
+    }
+  ];
   return (
-    <div className="w-full h-full bg-zinc-900 text-white flex flex-col items-center justify-center">
-      <h1 className="text-[25rem] font-medium tracking-wide ">work</h1>
-      <div className="flex items-center justify-center gap-12 border-2 border-zinc-700 w-full">
-        <div className="flex items-center justify-center gap-8 border-r-2 border-zinc-700 pr-8 py-2 px-2">
-          <span className="text-xl font-medium tracking-widest">HTML</span>
-          <span className="text-lg">40</span>
-        </div>
-        <div className="flex items-center justify-center gap-8 border-r-2 border-zinc-700 pr-8 py-2 px-2">
-          <span className="text-xl font-medium tracking-widest">CSS</span>
-          <span className="text-lg">40</span>
-        </div>
-        <div className="flex items-center justify-center gap-8 border-r-2 border-zinc-700 pr-8 py-2 px-2">
-          <span className="text-xl font-medium tracking-widest">
-            JavaScript
-          </span>
-          <span className="text-lg">40</span>
-        </div>
-        <div className="flex items-center justify-center gap-8 border-r-2 border-zinc-700 pr-8 py-2 px-2">
-          <span className="text-xl font-medium tracking-widest">React</span>
-          <span className="text-lg">40</span>
-        </div>
-        <div className="flex items-center justify-center gap-8 border-r-2 border-zinc-700 pr-8 py-2 px-2">
-          <span className="text-xl font-medium tracking-widest">Python</span>
-          <span className="text-lg">40</span>
-        </div>
-        <div className="flex items-center justify-center gap-8 border-r-2 border-zinc-700 pr-8 py-2 px-2">
-          <span className="text-xl font-medium tracking-widest">Django</span>
-          <span className="text-lg">40</span>
-        </div>
-        <div className="flex items-center justify-center gap-8  pr-8 py-2 px-2">
-          <span className="text-xl font-medium tracking-widest">Node JS</span>
-          <span className="text-lg">40</span>
-        </div>
-      </div>
+    <div className="w-full bg-zinc-900 text-white text-center">
+      <h1 className="text-[25rem] font-medium tracking-wide select-none">
+        work
+      </h1>
     </div>
   );
 }
