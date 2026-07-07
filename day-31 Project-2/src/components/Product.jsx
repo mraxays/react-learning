@@ -11,7 +11,7 @@ function Product({
   isCaseStudy,
 }) {
   return (
-    <div className="border-t border-b py-16 px-8 w-full">
+    <div className="py-16 px-8 w-full">
       <div className="flex gap-4 justify-between items-center mx-auto max-w-6xl">
         <h3 className="text-4xl capitalize font-semibold">{title}</h3>
         <img
