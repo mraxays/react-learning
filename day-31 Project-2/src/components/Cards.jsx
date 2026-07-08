@@ -7,7 +7,7 @@ function Cards() {
         <div className='w-full'>
             <div className="max-w-5xl mx-auto py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                 <Card start={false} para={true} />
-                <Card widthClass="md:col-span-2" start={true} para={false} />
+                <Card widthClass="md:col-span-2" start={true} para={false} hover={'bg-violet-500'} />
             </div>
         </div>
     )
