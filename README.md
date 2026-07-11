@@ -97,3 +97,8 @@ I created a simple e-commerce application using React and Tailwind CSS that fetc
 
 <img width="1200" height="630" alt="og_image" src="https://github.com/user-attachments/assets/e295997c-98ff-4d0c-94c0-5af4429c3f7e" />
 
+## Project 2
+### Refokus Clone In React
+
+<img width="1536" height="768" alt="image" src="https://github.com/user-attachments/assets/6235fbf1-e2e3-42ff-b5e3-1e701ee62a3b" />
+
