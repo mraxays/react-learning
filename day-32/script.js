@@ -33,11 +33,64 @@ fetch(`https://jsonplaceholder.typicode.com/posts/1`)
     console.log(posts.title);
   });
 */
+// Fetch API -> POST request
+/*
+fetch("https://jsonplaceholder.typicode.com/posts", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    title: "My First Post",
+    body: "This is the post content.",
+    userId: 1,
+  }),
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json))
+  .catch((error) => console.error(error));
+*/
 
-// Axios -> Is same as fetch but it is a library that allows you to make HTTP requests from the browser and Node.js. It is a promise-based HTTP client for JavaScript. It provides an easy-to-use API for making HTTP requests and handling responses. It also has built-in support for request and response interceptors, which can be used to modify requests or responses before they are sent or received. 
+// Axios -> Is same as fetch but it is a library that allows you to make HTTP requests from the browser and Node.js. It is a promise-based HTTP client for JavaScript. It provides an easy-to-use API for making HTTP requests and handling responses. It also has built-in support for request and response interceptors, which can be used to modify requests or responses before they are sent or received.  Here we are adding Axios to our project using the CDN link in the HTML file. Then we are making a GET request to the Random User API and logging the response data to the console. We are also using the .then() method to handle the promise returned by the Axios request, and logging the first result of the response data to the console.
 /*
 axios.get("https://randomuser.me/api/")
   .then((response) => {
     console.log(response.data.results[0]);
     });
+*/
+// Axios -> POST request
+/*axios
+  .post("https://jsonplaceholder.typicode.com/posts", {
+    title: "foo",
+    body: "bar",
+    userId: 1,
+  })
+  .then((response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+*/
+
+// Promises -> A Promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. It allows you to write asynchronous code in a more synchronous manner, making it easier to read and maintain. A Promise can be in one of three states: pending, fulfilled, or rejected. When a Promise is fulfilled, it means that the asynchronous operation has completed successfully, and the resulting value is available. When a Promise is rejected, it means that the asynchronous operation has failed, and an error message is available. You can use the .then() method to handle the fulfilled state of a Promise and the .catch() method to handle the rejected state of a Promise.
+/*
+const maleUserPromise = new Promise(function (resolve, reject) {
+  fetch(`https://randomuser.me/api/`)
+    .then((response) => response.json())
+    .then((json) => {
+      if (json.results[0].gender === "male") {
+        resolve(json.results[0]);
+      } else {
+        reject();
+      }
+    });
+});
+maleUserPromise
+  .then((maleUser) => {
+    console.log(maleUser);
+  })
+  .catch(() => {
+    console.log("No male user found.");
+  });
 */
