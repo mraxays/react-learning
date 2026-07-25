@@ -204,3 +204,23 @@ maleUserPromise
 // }
 
 // dataFetcher("https://randomuser.me/api/");
+
+// Generator => We can pause the flow of code execution and resume it later. This is useful for handling asynchronous operations, as we can yield control back to the event loop while waiting for a response from an API, and then resume execution once the response is received.In this example, we are defining a generator function that yields three values. We then create a generator object by calling the generator function, and use the .next() method to iterate through the yielded values. Each time we call .next(), the generator function is paused at the yield statement, and execution resumes when we call .next() again.
+
+// function* generatorFunction() {
+//   console.log("Generator function started");
+//   yield "First yield";
+//   console.log("Generator function resumed");
+//   yield "Second yield";
+//   console.log("Generator function finished");
+//   yield "Third yield";
+// }
+
+// const generator = generatorFunction();
+// console.log(generator.next()); // "Generator function started" is logged, and "First yield" is returned & Done: false
+// console.log(generator.next()); // "Generator function resumed" is logged, and "Second yield" is returned & Done: false
+// console.log(generator.next()); // "Generator function finished" is logged, and "Third yield" is returned & Done: false
+// console.log(generator.next()); // undefined is returned & Done: true
+// console.log(generator.next().value); // "Generator function started" is logged, and "First yield" is returned
+// console.log(generator.next().value); // "Generator function resumed" is logged, and "Second yield" is returned
+// console.log(generator.next().value); // "Generator function finished" is logged, and undefined is returned
