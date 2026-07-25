@@ -120,11 +120,87 @@ maleUserPromise
 
 // Async & Await => Async/Await is a modern way to handle asynchronous operations in JavaScript. It allows you to write asynchronous code in a more synchronous manner, making it easier to read and maintain. The async keyword is used to define an asynchronous function, and the await keyword is used to pause the execution of the function until a Promise is resolved or rejected. This allows you to write code that looks synchronous, but is actually asynchronous under the hood. In this example, we are using async/await to fetch data from the Random User API and log the first result to the console.
 
-async function abc() {
-  let a = await fetch("https://randomuser.me/api/");
-  a = await a.json();
-  console.log(a);
-  a = await a.results[0];
-  console.log(a);
-}
-abc();
+// async function abc() {
+//   let a = await fetch("https://randomuser.me/api/");
+//   a = await a.json();
+//   console.log(a);
+//   a = await a.results[0];
+//   console.log(a);
+// }
+// abc();
+
+// Event Loop => The event loop is a mechanism that allows JavaScript to perform non-blocking I/O operations by offloading operations to the system kernel whenever possible. It is responsible for managing the execution of multiple pieces of code, including asynchronous callbacks, and ensuring that they are executed in the correct order. The event loop continuously checks the call stack and the task queue, and if the call stack is empty, it takes the first task from the queue and pushes it onto the call stack for execution. This allows JavaScript to handle multiple tasks concurrently without blocking the main thread.
+
+// Callback VS Promises VS Async/Await => Callbacks, Promises, and Async/Await are all ways to handle asynchronous operations in JavaScript. Callbacks are the oldest and most basic way to handle asynchronous operations, but they can lead to callback hell and make code difficult to read and maintain. Promises provide a more structured way to handle asynchronous operations, allowing you to chain multiple operations together and handle errors more easily. Async/Await is the most modern way to handle asynchronous operations, allowing you to write asynchronous code in a more synchronous manner, making it easier to read and maintain. Overall, Promises and Async/Await are generally preferred over callbacks for handling asynchronous operations in modern JavaScript development.
+
+// Callback function to fetch data from an API and log the results to the console
+// function dataFetcher(url, callback) {
+//   fetch(url)
+//     .then((response) => response.json())
+//     .then((data) => {
+//       callback(data);
+//     });
+// }
+// dataFetcher("https://randomuser.me/api/", function (data) {
+//   console.log(
+//     `Gender : ${data.results[0].gender}, First Name: ${data.results[0].name.first}, Last Name: ${data.results[0].name.last}, Email: ${data.results[0].email}`,
+//   );
+// });
+
+// Promise function to fetch data from an API and log the results to the console
+// const dataFetcherPromise = new Promise(function (resolve, reject) {
+//   fetch("https://randomuser.me/api/")
+//     .then((response) => response.json())
+//     .then((data) => {
+//       resolve(data);
+//     });
+// });
+// dataFetcherPromise
+//   .then((data) => {
+//     console.log(
+//       `Gender : ${data.results[0].gender}, First Name: ${data.results[0].name.first}, Last Name: ${data.results[0].name.last}, Email: ${data.results[0].email}`,
+//     );
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   });
+
+// function dataFetcher(url) {
+//   return new Promise((resolve, reject) => {
+//     fetch(url)
+//       .then((response) => response.json())
+//       .then((data) => {
+//         resolve(data);
+//       })
+//       .catch((error) => {
+//         reject(error);
+//       });
+//   });
+// }
+// dataFetcher("https://randomuser.me/api/")
+//   .then((data) => {
+//     console.log(
+//       `Gender : ${data.results[0].gender}, First Name: ${data.results[0].name.first}, Last Name: ${data.results[0].name.last}, Email: ${data.results[0].email}`,
+//     );
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   });
+
+
+// Async/Await function to fetch data from an API and log the results to the console
+
+// async function dataFetcher(url) {
+//   try {
+//     const response = await fetch(url);
+//     const data = await response.json();
+//     console.log(
+//       `Gender : ${data.results[0].gender}, First Name: ${data.results[0].name.first}, Last Name: ${data.results[0].name.last}, Email: ${data.results[0].email}`,
+//     );
+//   }
+//   catch (error) {
+//     console.error(error);
+//   }
+// }
+
+// dataFetcher("https://randomuser.me/api/");
