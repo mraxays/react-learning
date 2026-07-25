@@ -94,3 +94,26 @@ maleUserPromise
     console.log("No male user found.");
   });
 */
+
+// Callbacks => A callback is a function that is passed as an argument to another function and is executed after the completion of that function. Callbacks are commonly used in asynchronous programming to handle the results of asynchronous operations.
+
+// function abc(a, b) {
+//   console.log(a);
+//   b();
+// }
+
+// abc(1, function () {
+//   console.log("Hello");
+// });
+
+// function getData(url, callback) {
+//   fetch(url)
+//     .then((response) => response.json())
+//     .then((data) => {
+//       callback(data);
+//     });
+// }
+
+// getData("https://randomuser.me/api/", function (data) {
+//   console.log(`Gender : ${data.results[0].gender}, First Name: ${data.results[0].name.first}, Last Name: ${data.results[0].name.last}, Email: ${data.results[0].email}`);
+// });
