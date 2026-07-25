@@ -224,3 +224,17 @@ maleUserPromise
 // console.log(generator.next().value); // "Generator function started" is logged, and "First yield" is returned
 // console.log(generator.next().value); // "Generator function resumed" is logged, and "Second yield" is returned
 // console.log(generator.next().value); // "Generator function finished" is logged, and undefined is returned
+
+// web workers => Usully, JavaScript runs in a single thread, which means that it can only execute one task at a time. This can lead to performance issues when running long-running tasks, as they can block the main thread and make the application unresponsive. Web Workers allow you to run JavaScript code in a separate thread, which can help improve performance and responsiveness.
+
+// var nums = Array.from({ length: 10000 }, (_, i) => i + 1);
+
+// In this example ^ we are creating nums array with 10000 numbers from 1 to 10000 using Array.from() method. The first argument is an object with a length property, which specifies the number of elements in the array. The second argument is a mapping function that takes two arguments: the current element (which we are not using, so we use _ as a placeholder) and the index of the current element (i). We are returning i + 1 to create an array of numbers from 1 to 10000.
+
+var nums = Array.from({ length: 10000 }, (_, i) => i + 1);
+const worker = new Worker("worker.js"); // In this line, we are creating a new Worker object and passing the path to the worker.js file as an argument. This will create a new thread that will run the code in the worker.js file. We can then use the postMessage() method to send data to the worker thread. In this case, we are sending the nums array to the worker thread for processing.
+worker.postMessage(nums);
+
+worker.onmessage = function (event) {
+  console.log("Result from worker:", event.data); // In this line, we are defining an onmessage event handler for the worker object. This function will be called whenever the worker thread sends a message back to the main thread using postMessage(). The event.data property contains the data sent from the worker thread. In this case, we are logging the result of the calculation performed by the worker thread to the console.
+}
