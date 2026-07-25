@@ -117,3 +117,14 @@ maleUserPromise
 // getData("https://randomuser.me/api/", function (data) {
 //   console.log(`Gender : ${data.results[0].gender}, First Name: ${data.results[0].name.first}, Last Name: ${data.results[0].name.last}, Email: ${data.results[0].email}`);
 // });
+
+// Async & Await => Async/Await is a modern way to handle asynchronous operations in JavaScript. It allows you to write asynchronous code in a more synchronous manner, making it easier to read and maintain. The async keyword is used to define an asynchronous function, and the await keyword is used to pause the execution of the function until a Promise is resolved or rejected. This allows you to write code that looks synchronous, but is actually asynchronous under the hood. In this example, we are using async/await to fetch data from the Random User API and log the first result to the console.
+
+async function abc() {
+  let a = await fetch("https://randomuser.me/api/");
+  a = await a.json();
+  console.log(a);
+  a = await a.results[0];
+  console.log(a);
+}
+abc();
