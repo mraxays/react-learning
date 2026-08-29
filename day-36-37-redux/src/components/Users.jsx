@@ -1,9 +1,8 @@
-// import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { userSlice } from './store/reducers/userReducers'
+import { userSlice } from '../store/reducers/userReducer'
 
 
-function App() {
+function Users() {
   const users = useSelector((state) => state.userReducer.users)
   const dispatch = useDispatch()
 
@@ -74,4 +73,4 @@ function App() {
   )
 }
 
-export default App
+export default Users
