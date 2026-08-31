@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { Link } from "react-router-dom";
 
 function Sidenav() {
@@ -125,6 +125,30 @@ function Sidenav() {
                         </span>
                     </Link>
 
+                    <div className="my-6 border-t border-[#33332f]" />
+                    {/* Contact Us & About Us */}
+                    <Link
+                        to="/contact"
+                        className="group flex items-center gap-3 px-3.5 py-3 rounded-xl text-gray-400 hover:bg-[#2b2b28] hover:text-white transition"
+                    >
+                        <span className="w-9 h-9 rounded-lg bg-[#292926] flex items-center justify-center">
+                            <i className="ri-mail-line text-lg text-gray-500 group-hover:text-green-400 transition" />
+                        </span>
+                        <span className="text-sm font-medium">
+                            Contact Us
+                        </span>
+                    </Link>
+                    <Link
+                        to="/about"
+                        className="group flex items-center gap-3 px-3.5 py-3 rounded-xl text-gray-400 hover:bg-[#2b2b28] hover:text-white transition"
+                    >
+                        <span className="w-9 h-9 rounded-lg bg-[#292926] flex items-center justify-center">
+                            <i className="ri-information-line text-lg text-gray-500 group-hover:text-yellow-400 transition" />
+                        </span>
+                        <span className="text-sm font-medium">
+                            About Us
+                        </span>
+                    </Link>
                 </div>
             </div>
         </aside>
