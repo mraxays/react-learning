@@ -15,7 +15,7 @@ function SearchBar() {
         const timer = setTimeout(async () => {
             try {
                 const response = await axios.get(`/search/multi?query=${encodeURIComponent(query)}`);
-                console.log(response.data.results);
+                // console.log(response.data.results);
                 setShowResults(true);
                 const filteredResults = response.data.results
                     .filter((item) => item.media_type === "movie")
