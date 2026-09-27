@@ -26,7 +26,7 @@ const Header = ({ data }) => {
 
                                 {data.release_date && (
                                     <span className="text-white/70">
-                                      <i class="ri-megaphone-line"></i>  {data.release_date}
+                                      <i className="ri-megaphone-line"></i>  {data.release_date}
                                     </span>
                                 )}
                             </div>
