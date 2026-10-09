@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Sidenav() {
@@ -6,12 +6,12 @@ function Sidenav() {
 
     const genres = [
         { name: "Home", icon: "ri-home-line", path: "/" },
-        { name: "Action", icon: "ri-sword-line", path: "/genre/action" },
-        { name: "Comedy", icon: "ri-emotion-laugh-line", path: "/genre/comedy" },
-        { name: "Drama", icon: "ri-movie-2-line", path: "/genre/drama" },
-        { name: "Horror", icon: "ri-ghost-line", path: "/genre/horror" },
-        { name: "Thriller", icon: "ri-alarm-warning-line", path: "/genre/thriller" },
-        { name: "Romance", icon: "ri-heart-3-line", path: "/genre/romance" },
+        { name: "Action", icon: "ri-sword-line", path: "/action" },
+        { name: "Comedy", icon: "ri-emotion-laugh-line", path: "/comedy" },
+        { name: "Drama", icon: "ri-movie-2-line", path: "/drama" },
+        { name: "Horror", icon: "ri-ghost-line", path: "/horror" },
+        { name: "Thriller", icon: "ri-alarm-warning-line", path: "/thriller" },
+        { name: "Romance", icon: "ri-heart-3-line", path: "/romance" },
     ];
 
     const closeSidebar = () => {
@@ -97,9 +97,7 @@ function Sidenav() {
                                         `}
                                     >
                                         <span
-                                            className={`
-                                                w-9 h-9 rounded-lg
-                                                flex items-center justify-center
+                                            className={`w-9 h-9 rounded-lg flex items-center justify-center
                                                 ${index === 0
                                                     ? "bg-blue-500/15 text-blue-400"
                                                     : "bg-[#292926] text-gray-500 group-hover:text-gray-300"
