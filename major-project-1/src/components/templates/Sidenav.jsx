@@ -81,7 +81,7 @@ function Sidenav() {
                     {/* Genres */}
                     <nav>
                         <ul className="space-y-1.5">
-                            {genres.map((genre, index) => (
+                            {genres.map((genre) => (
                                 <li key={genre.name}>
                                     <NavLink to={genre.path} onClick={closeSidebar} className={({ isActive }) => `group flex items-center gap-3 px-3.5 py-3 rounded-xl transition-all duration-200 ${isActive ? "bg-blue-500/10 text-blue-400 border border-blue-500/10" : "text-gray-400 hover:bg-[#2b2b28] hover:text-white"}`}>
                                         {({ isActive }) => (
