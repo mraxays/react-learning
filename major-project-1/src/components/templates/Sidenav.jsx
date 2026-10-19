@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Sidenav() {
     const [isOpen, setIsOpen] = useState(false);
@@ -83,41 +83,21 @@ function Sidenav() {
                         <ul className="space-y-1.5">
                             {genres.map((genre, index) => (
                                 <li key={genre.name}>
-                                    <Link
-                                        to={genre.path}
-                                        onClick={closeSidebar}
-                                        className={`
-                                            group flex items-center gap-3
-                                            px-3.5 py-3 rounded-xl
-                                            transition-all duration-200
-                                            ${index === 0
-                                                ? "bg-blue-500/10 text-blue-400 border border-blue-500/10"
-                                                : "text-gray-400 hover:bg-[#2b2b28] hover:text-white"
-                                            }
-                                        `}
-                                    >
-                                        <span
-                                            className={`w-9 h-9 rounded-lg flex items-center justify-center
-                                                ${index === 0
-                                                    ? "bg-blue-500/15 text-blue-400"
-                                                    : "bg-[#292926] text-gray-500 group-hover:text-gray-300"
-                                                }
-                                            `}
-                                        >
-                                            <i className={`${genre.icon} text-lg`} />
-                                        </span>
+                                    <NavLink to={genre.path} onClick={closeSidebar} className={({ isActive }) => `group flex items-center gap-3 px-3.5 py-3 rounded-xl transition-all duration-200 ${isActive ? "bg-blue-500/10 text-blue-400 border border-blue-500/10" : "text-gray-400 hover:bg-[#2b2b28] hover:text-white"}`}>
+                                        {({ isActive }) => (
+                                            <>
+                                                <span className={`w-9 h-9 rounded-lg flex items-center justify-center ${isActive ? "bg-blue-500/15 text-blue-400" : "bg-[#292926] text-gray-500 group-hover:text-gray-300"}`}>
+                                                    <i className={`${genre.icon} text-lg`} />
+                                                </span>
 
-                                        <span className="flex-1 text-sm font-medium">
-                                            {genre.name}
-                                        </span>
+                                                <span className="flex-1 text-sm font-medium">
+                                                    {genre.name}
+                                                </span>
 
-                                        <i className="
-                                            ri-arrow-right-s-line
-                                            text-gray-600
-                                            group-hover:text-gray-400
-                                            transition
-                                        " />
-                                    </Link>
+                                                <i className="ri-arrow-right-s-line text-gray-600 group-hover:text-gray-400 transition"/>
+                                            </>
+                                        )}
+                                    </NavLink>
                                 </li>
                             ))}
                         </ul>
@@ -129,7 +109,7 @@ function Sidenav() {
                     <div className="space-y-1.5">
 
                         {/* Favorites */}
-                        <Link
+                        <NavLink
                             to="/favorites"
                             onClick={closeSidebar}
                             className="
@@ -156,10 +136,10 @@ function Sidenav() {
                             <span className="text-sm font-medium">
                                 My Favorites
                             </span>
-                        </Link>
+                        </NavLink>
 
                         {/* History */}
-                        <Link
+                        <NavLink
                             to="/history"
                             onClick={closeSidebar}
                             className="
@@ -186,12 +166,12 @@ function Sidenav() {
                             <span className="text-sm font-medium">
                                 Watch History
                             </span>
-                        </Link>
+                        </NavLink>
 
                         <div className="my-6 border-t border-[#33332f]" />
 
                         {/* Contact */}
-                        <Link
+                        <NavLink
                             to="/contact"
                             onClick={closeSidebar}
                             className="
@@ -218,10 +198,10 @@ function Sidenav() {
                             <span className="text-sm font-medium">
                                 Contact Us
                             </span>
-                        </Link>
+                        </NavLink>
 
                         {/* About */}
-                        <Link
+                        <NavLink
                             to="/about"
                             onClick={closeSidebar}
                             className="
@@ -248,7 +228,7 @@ function Sidenav() {
                             <span className="text-sm font-medium">
                                 About Us
                             </span>
-                        </Link>
+                        </NavLink>
                     </div>
                 </div>
             </aside>

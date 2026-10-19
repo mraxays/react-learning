@@ -4,7 +4,8 @@ import Sidenav from './templates/Sidenav';
 import Topnav from './templates/Topnav';
 import Dropdown from './templates/Dropdown';
 import Loading from './Loading';
-import { Link } from 'react-router-dom';
+// import { InfiniteScroll } from "react-infinite-scroll-component";
+import Cards from './templates/Cards';
 
 function Action() {
     // eslint-disable-next-line react-hooks/immutability
@@ -108,21 +109,9 @@ function Action() {
                     <p className="text-gray-500 mt-5">No action content available.</p>
                 ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-5">
-                        {actionMovies.map((item) => (
-                            <Link key={`${item.media_type}-${item.id}`} to={`/${item.media_type}/${item.id}`} className="bg-[#1c1c1c] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
-                                {item.poster_path ? (
-                                    <img
-                                        src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                                        alt={item.title || item.name || "Poster"}
-                                        className="w-full h-auto object-cover"
-                                    />
-                                ) : (
-                                    <div className="h-64 flex items-center justify-center text-gray-400">
-                                        No poster available
-                                    </div>
-                                )}
-                            </Link>
-                        ))}
+                        {/* {actionMovies.map((item) => ( */}
+                            <Cards data={actionMovies} />
+                        {/* ))} */}
                     </div>
                 )}
             </div>
