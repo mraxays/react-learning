@@ -8,10 +8,9 @@ function Sidenav() {
         { name: "Home", icon: "ri-home-line", path: "/" },
         { name: "Action", icon: "ri-sword-line", path: "/action" },
         { name: "Comedy", icon: "ri-emotion-laugh-line", path: "/comedy" },
-        { name: "Drama", icon: "ri-movie-2-line", path: "/drama" },
+        { name: "Romance", icon: "ri-heart-3-line", path: "/romance" },
         { name: "Horror", icon: "ri-ghost-line", path: "/horror" },
         { name: "Thriller", icon: "ri-alarm-warning-line", path: "/thriller" },
-        { name: "Romance", icon: "ri-heart-3-line", path: "/romance" },
     ];
 
     const closeSidebar = () => {
@@ -94,7 +93,7 @@ function Sidenav() {
                                                     {genre.name}
                                                 </span>
 
-                                                <i className="ri-arrow-right-s-line text-gray-600 group-hover:text-gray-400 transition"/>
+                                                <i className="ri-arrow-right-s-line text-gray-600 group-hover:text-gray-400 transition" />
                                             </>
                                         )}
                                     </NavLink>
@@ -102,134 +101,6 @@ function Sidenav() {
                             ))}
                         </ul>
                     </nav>
-
-                    <div className="my-6 border-t border-[#33332f]" />
-
-                    {/* Bottom Navigation */}
-                    <div className="space-y-1.5">
-
-                        {/* Favorites */}
-                        <NavLink
-                            to="/favorites"
-                            onClick={closeSidebar}
-                            className="
-                                group flex items-center gap-3
-                                px-3.5 py-3 rounded-xl
-                                text-gray-400
-                                hover:bg-[#2b2b28] hover:text-white
-                                transition
-                            "
-                        >
-                            <span className="
-                                w-9 h-9 rounded-lg
-                                bg-[#292926]
-                                flex items-center justify-center
-                            ">
-                                <i className="
-                                    ri-heart-line text-lg
-                                    text-gray-500
-                                    group-hover:text-red-400
-                                    transition
-                                " />
-                            </span>
-
-                            <span className="text-sm font-medium">
-                                My Favorites
-                            </span>
-                        </NavLink>
-
-                        {/* History */}
-                        <NavLink
-                            to="/history"
-                            onClick={closeSidebar}
-                            className="
-                                group flex items-center gap-3
-                                px-3.5 py-3 rounded-xl
-                                text-gray-400
-                                hover:bg-[#2b2b28] hover:text-white
-                                transition
-                            "
-                        >
-                            <span className="
-                                w-9 h-9 rounded-lg
-                                bg-[#292926]
-                                flex items-center justify-center
-                            ">
-                                <i className="
-                                    ri-history-line text-lg
-                                    text-gray-500
-                                    group-hover:text-blue-400
-                                    transition
-                                " />
-                            </span>
-
-                            <span className="text-sm font-medium">
-                                Watch History
-                            </span>
-                        </NavLink>
-
-                        <div className="my-6 border-t border-[#33332f]" />
-
-                        {/* Contact */}
-                        <NavLink
-                            to="/contact"
-                            onClick={closeSidebar}
-                            className="
-                                group flex items-center gap-3
-                                px-3.5 py-3 rounded-xl
-                                text-gray-400
-                                hover:bg-[#2b2b28] hover:text-white
-                                transition
-                            "
-                        >
-                            <span className="
-                                w-9 h-9 rounded-lg
-                                bg-[#292926]
-                                flex items-center justify-center
-                            ">
-                                <i className="
-                                    ri-mail-line text-lg
-                                    text-gray-500
-                                    group-hover:text-green-400
-                                    transition
-                                " />
-                            </span>
-
-                            <span className="text-sm font-medium">
-                                Contact Us
-                            </span>
-                        </NavLink>
-
-                        {/* About */}
-                        <NavLink
-                            to="/about"
-                            onClick={closeSidebar}
-                            className="
-                                group flex items-center gap-3
-                                px-3.5 py-3 rounded-xl
-                                text-gray-400
-                                hover:bg-[#2b2b28] hover:text-white
-                                transition
-                            "
-                        >
-                            <span className="
-                                w-9 h-9 rounded-lg
-                                bg-[#292926]
-                                flex items-center justify-center
-                            ">
-                                <i className="
-                                    ri-information-line text-lg
-                                    text-gray-500
-                                    group-hover:text-yellow-400
-                                    transition
-                                " />
-                            </span>
-
-                            <span className="text-sm font-medium">
-                                About Us
-                            </span>
-                        </NavLink>
-                    </div>
                 </div>
             </aside>
         </>
