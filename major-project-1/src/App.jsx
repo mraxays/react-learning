@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import Home from "./components/Home"
+import Popular from "./components/Popular"
 import Action from "./components/Action"
 import Comedy from "./components/Comedy"
 import Romance from "./components/Romance"
@@ -11,6 +12,7 @@ function App() {
     <div className="bg-[#181814] text-white min-h-screen">
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/popular" element={<Popular />} />
         <Route path="/action" element={<Action />} />
         <Route path="/comedy" element={<Comedy />} />
         <Route path="/romance" element={<Romance />} />
